@@ -1,68 +1,40 @@
+const stories = '../stories./js'
 const inputPage = `
 <section>
-    <h2>Birthday Party Fun 🎂</h2>
+    <h2>Millions of &lt;nouns/&gt;</h2>
     <form>
       <h3>Fill in the blank fields below.</h3>
       <div>
-        <label for="personsName1">Person's name: </label>
-        <input type="text" name="personsName1" id="personsName1" required />
+        <label for="place">Enter a Place: </label>
+        <input type="text" name="place" id="place" required />
       </div>
       <div>
-        <label for="noun1">Noun: </label>
-        <input type="text" name="noun1" id="noun1" required />
+        <label for="noun">Enter a Noun: </label>
+        <input type="text" name="noun" id="noun" required />
       </div>
       <div>
-        <label for="adjective1">Adjective: </label>
-        <input type="text" name="adjective1" id="adjective1" required />
+        <label for="secondNoun">Enter a Second Noun: </label>
+        <input type="text" name="secondNoun" id="secondNoun" required />
       </div>
       <div>
-        <label for="activity1">Activity: </label>
-        <input type="text" name="activity1" id="activity1" required />
+        <label for="rhymesWithSecondNoun">Enter a word that rhymes with the previous: </label>
+        <input type="text" name="rhymesWithSecondNoun" id="rhymesWithSecondNoun" required />
       </div>
       <div>
-        <label for="verb1">Verb: </label>
-        <input type="text" name="verb1" id="verb1" required />
+        <label for="typeOfBuilding">Enter a type of building: </label>
+        <input type="text" name="typeOfBuilding" id="typeOfBuilding" required />
       </div>
       <div>
-        <label for="personsName2">Person's name: </label>
-        <input type="text" name="personsName2" id="personsName2" required />
+        <label for="adjective">Enter an adjective: </label>
+        <input type="text" name="adjective" id="adjective" required />
       </div>
       <div>
-        <label for="noun2">Noun: </label>
-        <input type="text" name="noun2" id="noun2" required />
+        <label for="appendage">Enter an appendage: </label>
+        <input type="text" name="appendage" id="appendage" required />
       </div>
       <div>
-        <label for="personsName3">Person's name: </label>
-        <input type="text" name="personsName3" id="personsName3" required />
-      </div>
-      <div>
-        <label for="noun3">Noun: </label>
-        <input type="text" name="noun3" id="noun3" required />
-      </div>
-      <div>
-        <label for="pastTenseVerb1">Past Tense Verb: </label>
-        <input
-          type="text"
-          name="pastTenseVerb1"
-          id="pastTenseVerb1"
-          required
-        />
-      </div>
-      <div>
-        <label for="songName">Song Name: </label>
-        <input type="text" name="songName" id="songName" required />
-      </div>
-      <div>
-        <label for="adjective2">Adjective: </label>
-        <input type="text" name="adjective2" id="adjective2" required />
-      </div>
-      <div>
-        <label for="personsName4">Person's name: </label>
-        <input type="text" name="personsName4" id="personsName4" required />
-      </div>
-      <div>
-        <label for="adjective3">Adjective: </label>
-        <input type="text" name="adjective3" id="adjective3" required />
+        <label for="typeOfFood">Enter a type of food: </label>
+        <input type="text" name="typeOfFood" id="typeOfFood" required />
       </div>
       <div>
         <input type="submit" value="&gt; Go Mad" />

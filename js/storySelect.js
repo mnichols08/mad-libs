@@ -12,7 +12,7 @@ const storySelect = `
             alt="placeholder description"
           />
           <h3>${story.title}</h3>
-          <button id='${i}'>${story.content}</button>
+          <button id='${i}'>&gt; GO MAD</button>
         </div>
       </li>
         `;

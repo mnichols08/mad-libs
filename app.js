@@ -2,8 +2,7 @@ import header from "./js/header.js";
 import footer from "./js/footer.js";
 import inputPage from "./js/inputPage.js";
 import storySelect from "./js/storySelect.js";
-import gameInput from "./js/gameInput.js";
-import millions from './js/stories/millions.js';
+import stories from "./js/stories.js";
 
 (function () {
   const createEle = (ele, content, anchor) => {
@@ -29,28 +28,59 @@ import millions from './js/stories/millions.js';
 		`;
 
   const root = createEle("root", app, document.body);
-  const main = document.querySelector('main')
+  const main = document.querySelector("main");
   const startButton = document.getElementById("start");
-  const init = () => main.innerHTML = ``;
+  const init = () => (main.innerHTML = ``);
   startButton.addEventListener("click", (e) => {
     init();
     const story = createEle("section", storySelect, main);
-    const renderStory = (id) => {
+    const renderStory = () => {
       init();
     };
-    const initStory = (id) => {
+    const initStory = () => {
       init();
       const input = createEle("section", inputPage, main);
+      let place,
+        noun,
+        secondNoun,
+        rhymesWithSecondNoun,
+        typeOfBuilding,
+        adjective,
+        appendage,
+        typeOfFood;
+
+      console.log();
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        place = document.getElementById("place").value;
+        noun = document.getElementById("noun").value;
+        secondNoun = document.getElementById("secondNoun").value;
+        rhymesWithSecondNoun = document.getElementById(
+          "rhymesWithSecondNoun"
+        ).value;
+        typeOfBuilding = document.getElementById("typeOfBuilding").value;
+        adjective = document.getElementById("adjective").value;
+        appendage = document.getElementById("appendage").value;
+        typeOfFood = document.getElementById("typeOfFood").value;
+        init();
+        createEle('section', stories[0].render(
+          place,
+          noun,
+          secondNoun,
+          rhymesWithSecondNoun,
+          typeOfBuilding,
+          adjective,
+          appendage,
+          typeOfFood
+        ).split('\n').map(line => `<p>${line}</p>`), main)
+      });
     };
 
-    story
-      .querySelectorAll("button")
-      .forEach((button) =>
-        button.addEventListener("click", (e) => {
-            init()
-            initStory(e.target.id)
-            console.log(millions('Intercourse', 'wang', 'parakeet', 'cherokee', 'pentagon', 'long', 'wang', 'mashed potatoes'))
-        })
-      );
+    story.querySelectorAll("button").forEach((button) =>
+      button.addEventListener("click", (e) => {
+        init();
+        initStory(e.target.id);
+      })
+    );
   });
 })();
