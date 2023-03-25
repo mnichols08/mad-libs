@@ -49,7 +49,6 @@ import stories from "./js/stories.js";
         appendage,
         typeOfFood;
 
-      console.log();
       document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
         place = document.getElementById("place").value;
