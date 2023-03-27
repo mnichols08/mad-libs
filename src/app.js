@@ -10,7 +10,7 @@ const createEle = (ele, content, root) => {
 const init = () => (anchor.innerHTML = "");
 
 const choose = () => {
-  let stories = [{ title: "test" }, { title: "titts" }];
+  //let stories = [{ title: "test" }, { title: "titts" }];
   // stories can be passed in from the JSON file
   const section = document.createElement("section");
   const heading = document.createElement("h2");
