@@ -33,7 +33,9 @@
   "homepage": "https://chingu-voyages.github.io/v43-tier1-team-09/",
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "css-loader": "^6.7.3",
     "serve": "^14.2.0",
+    "style-loader": "^3.3.2",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1"
   }
