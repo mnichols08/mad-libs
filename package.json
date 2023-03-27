@@ -34,6 +34,8 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "css-loader": "^6.7.3",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.1",
     "serve": "^14.2.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.76.3",
