@@ -10,8 +10,6 @@ const createEle = (ele, content, root) => {
 const init = () => (anchor.innerHTML = "");
 
 const choose = () => {
-  //let stories = [{ title: "test" }, { title: "titts" }];
-  // stories can be passed in from the JSON file
   const section = document.createElement("section");
   const heading = document.createElement("h2");
   const ul = document.createElement("ul");
@@ -24,7 +22,7 @@ const choose = () => {
                 src="https://placehold.jp/150x150.png"
                 alt="placeholder description"
               />
-              <a href="input.html"><h3>${story.title}</h3></a>
+              <a href="input.html"><h3>${story.Scenario_title}</h3></a>
             </div>
 
     `,
@@ -37,6 +35,6 @@ const choose = () => {
   section.prepend(heading);
   section.append(ul);
   anchor.append(section);
-  //ul.classList.add("flex wrap no-list center");
+  ul.classList = "flex wrap no-list center"
 };
 startButton.onclick = choose;
