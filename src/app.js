@@ -1,3 +1,5 @@
+// imports stories from json file
+import stories from './data/scenarios.json' assert {type: 'json'};
 // declares anchor container app to render within
 const anchor = document.querySelector("main");
 // function to clear the app on demand
@@ -13,6 +15,7 @@ const init = () => {
   </section>
   `;
 };
-
+// function to collect scenarios and return them
+const collectScenarios = () => stories;
 // initializes the app on body page load.
 document.body.onload = init;
