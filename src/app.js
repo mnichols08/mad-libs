@@ -1,16 +1,11 @@
 // imports stories from json file
 import scenarios from "./data/scenarios.json" assert { type: "json" };
+// declare a variable for the h1
+const title = document.querySelector('h1');
 // declares anchor container app to render within
 const anchor = document.querySelector("main");
 // function to clear the app on demand
 const clear = () => (anchor.innerHTML = "");
-// function to initialize the app on demand
-const init = () => {
-  clear();
-  anchor.innerHTML = `
-  
-  `;
-};
 // function to create an element, set the innerHTML, and append it to another element
 const createEle = (ele, content, root) => {
   let container = document.createElement(ele);
@@ -48,7 +43,6 @@ const renderScenarios = (scenarios) => {
   ul.classList = "flex wrap no-list center";
 };
 
-// initializes the app on body page load.
-//document.body.onload = init;
+title.onclick = init
 document.querySelector("#init button").onclick = () =>
   renderScenarios(collectScenarios());
