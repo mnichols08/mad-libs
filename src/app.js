@@ -2,6 +2,8 @@
 import scenarios from "./data/scenarios.json" assert { type: "json" };
 // declares anchor container app to render within
 const anchor = document.querySelector("main");
+// declares a variable for the intiialze game button
+const initButton = document.querySelector('#init button')
 // function to clear the app on demand
 const clear = () => (anchor.innerHTML = "");
 // function to create an element, set the innerHTML, and append it to another element
@@ -50,5 +52,5 @@ const renderScenarios = (scenarios) => {
   madlibs.forEach((madlib, i) => madlib.addEventListener('click', () => scenarios.render(i)))
 };
 
-document.querySelector("#init button").onclick = () =>
+initButton.onclick = () =>
   renderScenarios(collectScenarios());
