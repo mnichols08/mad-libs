@@ -16,7 +16,7 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    render: (index) => renderInputs(index, scenarios[index].Variables),
+    render: (index) => renderInputs(scenarios[index].Scenario_title, scenarios[index].Variables),
   };
 };
 
@@ -53,12 +53,30 @@ const renderScenarios = (scenarios) => {
   );
 };
 
-  // function to render inputs
-const renderInputs = (index, inputs) => {
+// function to render inputs
+const renderInputs = (title, variables) => {
   // maps over the inputs array to extract the key values from it
-  const keys = inputs.map((input) => Object.keys(input).toString());
-  const placeholders = inputs.map((input, i) => input[keys[i]]);
+  const keys = variables.map((variable) => Object.keys(variable).toString());
+  const placeholders = variables.map((variable, i) => variable[keys[i]]);
+  const section = document.createElement("section");
+  const form = document.createElement("form");
+  const heading = document.createElement("h3");
+  createEle('h2',title,section);
+  heading.innerText = 'Fill in the blank fields below.'
+  keys.map((key, i) =>
+    createEle(
+      "div",
+      `
+        <label for="${key}">${placeholders[i]}: </label>
+        <input type="text" name="${key}" id="${key}" required />
+      `,
+      form
+    )
+  );
+  createEle("div", `<input type="submit" value="&gt; Go Mad" />`, form);
   clear()
+  section.append(form)
+  anchor.append(section)
 };
 
 initButton.onclick = () => renderScenarios(collectScenarios());
