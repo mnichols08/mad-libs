@@ -16,7 +16,7 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    render: index => console.log(scenarios[index])
+    render: index => console.log(scenarios[index].Variables)
   }
 };
 
@@ -25,8 +25,7 @@ const renderScenarios = (scenarios) => {
   const section = document.createElement("section");
   const heading = document.createElement("h2");
   const ul = document.createElement("ul");
-  const click = (e) => console.log('clicked', e)
-  scenarios.data.map((scene, i) => 
+  scenarios.data.map((scene) => 
     createEle(
       "li",
       `
