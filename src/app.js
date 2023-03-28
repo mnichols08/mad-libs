@@ -4,13 +4,6 @@ import scenarios from "./data/scenarios.json" assert { type: "json" };
 const anchor = document.querySelector("main");
 // function to clear the app on demand
 const clear = () => (anchor.innerHTML = "");
-// function to initialize the app on demand
-const init = () => {
-  clear();
-  anchor.innerHTML = `
-  
-  `;
-};
 // function to create an element, set the innerHTML, and append it to another element
 const createEle = (ele, content, root) => {
   let container = document.createElement(ele);
@@ -18,14 +11,20 @@ const createEle = (ele, content, root) => {
   root.append(container);
 };
 // function to collect scenarios and return them
-const collectScenarios = () => scenarios;
+const collectScenarios = () => {
+  return {
+    data: scenarios,
+    render: index => console.log(scenarios[index])
+  }
+};
 
 // function to render scenarios on screen
 const renderScenarios = (scenarios) => {
   const section = document.createElement("section");
   const heading = document.createElement("h2");
   const ul = document.createElement("ul");
-  scenarios.map((madlib, i) =>
+  const click = (e) => console.log('clicked', e)
+  scenarios.data.map((scene, i) => 
     createEle(
       "li",
       `
@@ -34,10 +33,11 @@ const renderScenarios = (scenarios) => {
                 src="https://placehold.jp/150x150.png"
                 alt="placeholder description"
               />
-              <a href='#${i}'><h3>${madlib.Scenario_title}</h3></a>
+              <a href="#"><h3>${scene.Scenario_title}</h3></a>
             </div>`,
       ul
     )
+    
   );
   clear();
   section.classList.add("game");
@@ -46,9 +46,9 @@ const renderScenarios = (scenarios) => {
   section.append(ul);
   anchor.append(section);
   ul.classList = "flex wrap no-list center";
+  const madlibs = document.querySelectorAll('.game ul li')
+  madlibs.forEach((madlib, i) => madlib.addEventListener('click', () => scenarios.render(i)))
 };
 
-// initializes the app on body page load.
-//document.body.onload = init;
 document.querySelector("#init button").onclick = () =>
   renderScenarios(collectScenarios());
