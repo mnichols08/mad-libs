@@ -3,7 +3,7 @@ import scenarios from "./data/scenarios.json" assert { type: "json" };
 // declares anchor container app to render within
 const anchor = document.querySelector("main");
 // declares a variable for the intiialze game button
-const initButton = document.querySelector('#init button')
+const initButton = document.querySelector("#init button");
 // function to clear the app on demand
 const clear = () => (anchor.innerHTML = "");
 // function to create an element, set the innerHTML, and append it to another element
@@ -16,8 +16,8 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    render: index => console.log(scenarios[index].Variables)
-  }
+    render: (index) => renderInputs(index, scenarios[index].Variables),
+  };
 };
 
 // function to render scenarios on screen
@@ -25,7 +25,7 @@ const renderScenarios = (scenarios) => {
   const section = document.createElement("section");
   const heading = document.createElement("h2");
   const ul = document.createElement("ul");
-  scenarios.data.map((scene) => 
+  scenarios.data.map((scene) =>
     createEle(
       "li",
       `
@@ -38,7 +38,6 @@ const renderScenarios = (scenarios) => {
             </div>`,
       ul
     )
-    
   );
   clear();
   section.classList.add("game");
@@ -47,9 +46,18 @@ const renderScenarios = (scenarios) => {
   section.append(ul);
   anchor.append(section);
   ul.classList = "flex wrap no-list center";
-  const madlibs = document.querySelectorAll('.game ul li')
-  madlibs.forEach((madlib, i) => madlib.addEventListener('click', () => scenarios.render(i)))
+  // Loop over all of the list items we just created and add an even listener to them, passing the index of the Madlib into the list item that is clicked upon.
+  const madlibs = document.querySelectorAll(".game ul li");
+  madlibs.forEach((madlib, i) =>
+    madlib.addEventListener("click", () => scenarios.render(i))
+  );
 };
 
-initButton.onclick = () =>
-  renderScenarios(collectScenarios());
+// function to render inputs
+const renderInputs = (index, inputs) => {
+  // maps over the inputs array to extract the key values from it
+  const keys = inputs.map((input) => Object.keys(input).toString());
+  const placeholders = inputs.map((input, i) => input[keys[i]]);
+};
+
+initButton.onclick = () => renderScenarios(collectScenarios());
