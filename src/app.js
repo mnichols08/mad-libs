@@ -53,11 +53,12 @@ const renderScenarios = (scenarios) => {
   );
 };
 
-// function to render inputs
+  // function to render inputs
 const renderInputs = (index, inputs) => {
   // maps over the inputs array to extract the key values from it
   const keys = inputs.map((input) => Object.keys(input).toString());
   const placeholders = inputs.map((input, i) => input[keys[i]]);
+  clear()
 };
 
 initButton.onclick = () => renderScenarios(collectScenarios());
