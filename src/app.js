@@ -16,7 +16,9 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    render: (index) => renderInputs(scenarios[index].Scenario_title, scenarios[index].Variables),
+    renderStory: (index, values) => console.log(index,values),
+    renderInputs: (index) => 
+      renderInputPage(scenarios[index].Scenario_title, scenarios[index].Variables, index),
   };
 };
 
@@ -49,20 +51,22 @@ const renderScenarios = (scenarios) => {
   // Loop over all of the list items we just created and add an even listener to them, passing the index of the Madlib into the list item that is clicked upon.
   const madlibs = document.querySelectorAll(".game ul li");
   madlibs.forEach((madlib, i) =>
-    madlib.addEventListener("click", () => scenarios.render(i))
+    madlib.addEventListener("click", () => scenarios.renderInputs(i))
   );
 };
 
 // function to render inputs
-const renderInputs = (title, variables) => {
+const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
   const keys = variables.map((variable) => Object.keys(variable).toString());
   const placeholders = variables.map((variable, i) => variable[keys[i]]);
   const section = document.createElement("section");
   const form = document.createElement("form");
   const heading = document.createElement("h3");
-  createEle('h2',title,section);
-  heading.innerText = 'Fill in the blank fields below.'
+  // renders the text on screen
+  createEle("h2", title, section); // dynamically changes the title
+  createEle("h3", "Fill in the blank fields below.", form);
+  // Maps over the keys array to render divs with labels and placeholders for form inputs
   keys.map((key, i) =>
     createEle(
       "div",
@@ -73,10 +77,21 @@ const renderInputs = (title, variables) => {
       form
     )
   );
+  // event listener must be inside of this function as this is where the form is rendered.
+  form.addEventListener('submit', e => {
+    e.preventDefault() // stops page from following default protocol to process the form
+    const formResponses = [...new FormData(e.target).entries()].map(data => data[1]); // renders responses from form into an array to be passed into next function
+    collectScenarios().renderStory(index, formResponses);
+  })
+
+  // function to render a story
+  // creates a button at the bottom of the form
   createEle("div", `<input type="submit" value="&gt; Go Mad" />`, form);
-  clear()
-  section.append(form)
-  anchor.append(section)
+  clear();
+  heading.prepend(form);
+  section.append(form);
+  anchor.append(section); 
 };
 
+// event listeners to handle user inputs
 initButton.onclick = () => renderScenarios(collectScenarios());
