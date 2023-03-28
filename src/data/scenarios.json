@@ -1,4 +1,4 @@
-{    {
+[    {
     "Category": "Lullaby",
     "Word Count": 191,
     "Scenario_title": "Millons of <nouns>",
@@ -194,4 +194,4 @@
       "Scenario": "One day, a web developer tried to style a button with CSS, but it was as finicky as a {{Adjective}} {{Animal}}. They spent hours adjusting the {{Adjective}} {{Color}} background, but CSS kept pushing it to the {{Adjective}} {{Direction}}. In frustration, the developer exclaimed \"Why won't you work, you {{Adjective}} stylesheet?!\" They eventually got it right, but not without a few {{Adjective}} {{Body Part}} and a newfound respect for the power of CSS.",
       "Source": ""
     }
-  }}
+  ]
