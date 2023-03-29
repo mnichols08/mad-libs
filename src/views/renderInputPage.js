@@ -5,8 +5,8 @@ import collectScenarios from "../controller/collectScenarios";
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
-  const keys = variables.map((variable) => Object.keys(variable).toString());
-  const placeholders = variables.map((variable, i) => variable[keys[i]]);
+  const keys = Object.keys(variables);
+  const placeholders = keys.map(key => variables[key])
   const section = document.createElement("section");
   const form = document.createElement("form");
   // renders the text on screen
