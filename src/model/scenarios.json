@@ -13,35 +13,8 @@
       "typeOfBuilding": "Type of Building",
       "adjective": "Adjective",
       "appendage": "Appendage",
-      "typeOfFood": "Type of Food"
+      "typeOfFood": "Type of Food"}
     },
-    "Vars": [
-      {
-        "place": "Place"
-      },
-      {
-        "noun": "Noun"
-      },
-      {
-        "secondNoun": "Second Noun"
-      },
-      {
-        "rhymesWithSecondNoun": "Word that rhymes with previous"
-      },
-      {
-        "typeOfBuilding": "Type of Building"
-      },
-      {
-        "adjective": "Adjective"
-      },
-      {
-        "appendage": "Appendage"
-      },
-      {
-        "typeOfFood": "Type of Food"
-      }
-    ]
-  },
   {
     "Category": "Holidays",
     "Word Count": 103,
