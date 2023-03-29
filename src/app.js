@@ -16,12 +16,13 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    renderStory: (index, values) =>
+    renderStory: (index, values, keys) =>
       renderStoryPage(
         scenarios[index].Scenario,
         values,
         scenarios[index].Scenario_title,
-        index
+        index,
+        keys
       ),
     renderInputs: (index) =>
       renderInputPage(
@@ -66,12 +67,15 @@ const renderScenarios = (scenarios) => {
 };
 
 // function to render a story page
-const renderStoryPage = (scenario, values, title, index) => {
+const renderStoryPage = (scenario, values, title, index, keys) => {
   const section = document.createElement("section");
+  let story;
   createEle("h2", title, section);
+  // keys.forEach((key, i) => story = scenario.replaceAll(`{${key}}`, values[i]))
+  // Because I cannot for the life of me figure out a good approach to handling the handling each scenario dynamically, we will have to manually code them below in a switch statement unless we can figure that one as a team XD
   switch (index) {
     case 0:
-      let [
+      const [
         place,
         noun,
         secondNoun,
@@ -81,7 +85,8 @@ const renderStoryPage = (scenario, values, title, index) => {
         appendage,
         typeOfFood,
       ] = values;
-      let nounScenario = scenario
+
+      scenario
         .replaceAll("{{place}}", place)
         .replaceAll("{{noun}}", noun)
         .replaceAll("{{secondNoun}}", secondNoun)
@@ -89,22 +94,26 @@ const renderStoryPage = (scenario, values, title, index) => {
         .replaceAll("{{typeOfBuilding}}", typeOfBuilding)
         .replaceAll("{{adjective}}", adjective)
         .replaceAll("{{appendage}}", appendage)
-        .replaceAll("{{typeOfFood}}", typeOfFood);
-      nounScenario = nounScenario.split('\\n')
-      nounScenario.map(line => createEle('p', line, section))
+        .replaceAll("{{typeOfFood}}", typeOfFood)
+        .split("\\n")
+        .map((line) => createEle("p", line, section));
       clear();
       anchor.append(section);
       break;
     default:
-      console.log(`Sorry, something went wrong.`);
+      console.error(`Sorry, something went wrong.`);
   }
 };
 
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
-  const keys = variables.map((variable) => Object.keys(variable).toString());
+
+  // error catching to see whether the JSON file is ready to render this page or not.
+  if (variables.length > 0) {
+  const keys = variables.map((variable) => Object.keys(variable).toString())
   const placeholders = variables.map((variable, i) => variable[keys[i]]);
+  } else console.error('Need to create variables in JSON File or line 123 will break')
   const section = document.createElement("section");
   const form = document.createElement("form");
   // renders the text on screen
@@ -126,8 +135,8 @@ const renderInputPage = (title, variables, index) => {
     e.preventDefault(); // stops page from following default protocol to process the form
     const formResponses = [...new FormData(e.target).entries()].map(
       (data) => data[1]
-    ); // renders responses from form into an array to be passed into next function
-    collectScenarios().renderStory(index, formResponses);
+    ); // renders responses from form into an array to be passed into the fucnction to collect scenarios
+    collectScenarios().renderStory(index, formResponses, keys);
   });
 
   // creates a button at the bottom of the form
