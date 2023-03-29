@@ -3,7 +3,7 @@ import scenarios from "./data/scenarios.json" assert { type: "json" };
 // declares anchor container to render our app within
 const anchor = document.querySelector("main");
 // declares a variable for the intiialze game button
-const initButton = document.querySelector("#init button");
+const homeButton = document.querySelector("h1");
 // function to clear the app on demand
 const clear = () => (anchor.innerHTML = "");
 // function to create an element, set the innerHTML to content, and append it to a root element
@@ -144,6 +144,15 @@ const renderInputPage = (title, variables, index) => {
   section.append(form);
   anchor.append(section);
 };
+  const init = () => {
+    clear()
+    createEle('section', `
+    <h2>Welcome</h2>
+    <p>Fill in the blanks and be the funniest person in the Room!</p>
+    <button>&gt; GO MAD</button>
+    `, anchor)
+    document.querySelector('button').onclick = () => renderScenarios(collectScenarios());
+  }
 
-// event listeners to handle user inputs
-initButton.onclick = () => renderScenarios(collectScenarios());
+document.body.onload = init;
+homeButton.onclick = init;
