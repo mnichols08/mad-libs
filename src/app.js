@@ -16,9 +16,19 @@ const createEle = (ele, content, root) => {
 const collectScenarios = () => {
   return {
     data: scenarios,
-    renderStory: (index, values) => console.log(index,values),
-    renderInputs: (index) => 
-      renderInputPage(scenarios[index].Scenario_title, scenarios[index].Variables, index),
+    renderStory: (index, values) =>
+      renderStoryPage(
+        scenarios[index].Scenario,
+        values,
+        scenarios[index].Scenario_title,
+        index
+      ),
+    renderInputs: (index) =>
+      renderInputPage(
+        scenarios[index].Scenario_title,
+        scenarios[index].Variables,
+        index
+      ),
   };
 };
 
@@ -55,6 +65,41 @@ const renderScenarios = (scenarios) => {
   );
 };
 
+// function to render a story page
+const renderStoryPage = (scenario, values, title, index) => {
+  const section = document.createElement("section");
+  createEle("h2", title, section);
+  switch (index) {
+    case 0:
+      let [
+        place,
+        noun,
+        secondNoun,
+        rhymesWithSecondNoun,
+        typeOfBuilding,
+        adjective,
+        appendage,
+        typeOfFood,
+      ] = values;
+      let nounScenario = scenario
+        .replaceAll("{{place}}", place)
+        .replaceAll("{{nouns}}", noun)
+        .replaceAll("{{secondNoun}}", secondNoun)
+        .replaceAll("{{rhymesWithSecondNoun}}", rhymesWithSecondNoun)
+        .replaceAll("{{typeOfBuilding}}", typeOfBuilding)
+        .replaceAll("{{adjective}}", adjective)
+        .replaceAll("{{appendage}}", appendage)
+        .replaceAll("{{typeOfFood}}", typeOfFood);
+      nounScenario = nounScenario.split('\\n')
+      nounScenario.map(line => createEle('p', line, section))
+      clear();
+      anchor.append(section);
+      break;
+    default:
+      console.log(`Sorry, something went wrong.`);
+  }
+};
+
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
@@ -62,7 +107,6 @@ const renderInputPage = (title, variables, index) => {
   const placeholders = variables.map((variable, i) => variable[keys[i]]);
   const section = document.createElement("section");
   const form = document.createElement("form");
-  const heading = document.createElement("h3");
   // renders the text on screen
   createEle("h2", title, section); // dynamically changes the title
   createEle("h3", "Fill in the blank fields below.", form);
@@ -78,19 +122,19 @@ const renderInputPage = (title, variables, index) => {
     )
   );
   // event listener must be inside of this function as this is where the form is rendered.
-  form.addEventListener('submit', e => {
-    e.preventDefault() // stops page from following default protocol to process the form
-    const formResponses = [...new FormData(e.target).entries()].map(data => data[1]); // renders responses from form into an array to be passed into next function
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // stops page from following default protocol to process the form
+    const formResponses = [...new FormData(e.target).entries()].map(
+      (data) => data[1]
+    ); // renders responses from form into an array to be passed into next function
     collectScenarios().renderStory(index, formResponses);
-  })
+  });
 
-  // function to render a story
   // creates a button at the bottom of the form
   createEle("div", `<input type="submit" value="&gt; Go Mad" />`, form);
   clear();
-  heading.prepend(form);
   section.append(form);
-  anchor.append(section); 
+  anchor.append(section);
 };
 
 // event listeners to handle user inputs
