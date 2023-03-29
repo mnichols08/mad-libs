@@ -1,5 +1,5 @@
 // imports stories from json file
-import scenarios from "../data/scenarios.json" assert { type: "json" };
+import scenarios from "../model/scenarios.json" assert { type: "json" };
 import renderStoryPage from "../views/renderStoryPage.js";
 import renderInputPage from "../views/renderInputPage";
 
