@@ -19,7 +19,8 @@ const collectScenarios = () => {
       renderInputPage(
         scenarios[index].Scenario_title,
         scenarios[index].Variables,
-        index
+        index,
+        scenarios[index].Vars
       ),
   };
 };
