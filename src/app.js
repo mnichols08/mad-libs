@@ -83,7 +83,7 @@ const renderStoryPage = (scenario, values, title, index) => {
       ] = values;
       let nounScenario = scenario
         .replaceAll("{{place}}", place)
-        .replaceAll("{{nouns}}", noun)
+        .replaceAll("{{noun}}", noun)
         .replaceAll("{{secondNoun}}", secondNoun)
         .replaceAll("{{rhymesWithSecondNoun}}", rhymesWithSecondNoun)
         .replaceAll("{{typeOfBuilding}}", typeOfBuilding)
