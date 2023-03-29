@@ -1,6 +1,6 @@
 // imports stories from json file
 import scenarios from "./data/scenarios.json" assert { type: "json" };
-// declares anchor container app to render within
+// declares anchor container to render our app within
 const anchor = document.querySelector("main");
 // declares a variable for the intiialze game button
 const initButton = document.querySelector("#init button");
@@ -107,29 +107,28 @@ const renderStoryPage = (scenario, values, title, index, keys) => {
 
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
-  // maps over the inputs array to extract the key values from it
+  // error catching because not every JSON object have variables yet
 
-  // error catching to see whether the JSON file is ready to render this page or not.
-  if (variables.length > 0) {
-  const keys = variables.map((variable) => Object.keys(variable).toString())
-  const placeholders = variables.map((variable, i) => variable[keys[i]]);
-  } else console.error('Need to create variables in JSON File or line 123 will break')
-  const section = document.createElement("section");
-  const form = document.createElement("form");
-  // renders the text on screen
-  createEle("h2", title, section); // dynamically changes the title
-  createEle("h3", "Fill in the blank fields below.", form);
-  // Maps over the keys array to render divs with labels and placeholders for form inputs
-  keys.map((key, i) =>
-    createEle(
-      "div",
-      `
+    // maps over the inputs array to extract the key values from it
+    const keys = variables.map((variable) => Object.keys(variable).toString());
+    const placeholders = variables.map((variable, i) => variable[keys[i]]);
+    const section = document.createElement("section");
+    const form = document.createElement("form");
+    // renders the text on screen
+    createEle("h2", title, section); // dynamically changes the title
+    createEle("h3", "Fill in the blank fields below.", form);
+    // Maps over the keys array to render divs with labels and placeholders for form inputs
+    keys.map((key, i) =>
+      createEle(
+        "div",
+        `
         <label for="${key}">${placeholders[i]}: </label>
         <input type="text" name="${key}" id="${key}" required />
       `,
-      form
-    )
-  );
+        form
+      )
+    );
+  
   // event listener must be inside of this function as this is where the form is rendered.
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // stops page from following default protocol to process the form
