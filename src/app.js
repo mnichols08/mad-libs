@@ -1,2 +1,2 @@
-import './styles/app.scss';
-document.querySelector("button").addEventListener("click",(()=>alert("webpack is installed")));
+//declares a container to render html inside of
+const anchor = document.querySelector('main');
