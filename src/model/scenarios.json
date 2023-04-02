@@ -1,0 +1,116 @@
+[
+  {
+    "Category": "Lullaby",
+    "Word Count": 191,
+    "Scenario_title": "Millons of &lt;nouns/&gt;",
+    "Scenario": "Movin' to the {{place}}\\nGonna eat a lot of {{noun}}es\\nMovin' to the {{place}}\\nGonna eat me a lot of {{noun}}es\\nMovin' to the {{place}}\\nGonna eat a lot of {{noun}}es\\nMovin' to the {{place}}\\nI'm gonna eat a lot of {{noun}}es\\n{{noun}}es come from a {{secondNoun}}\\nThey were put there by a {{rhymesWithSecondNoun}}\\nIn a {{typeOfBuilding}} downtown\\nIf I had my little way\\nI'd eat {{noun}}es every day\\n{{adjective}} bulges in the shade\\nMovin' to the {{place}}\\nGonna eat a lot of {{noun}}es\\nMovin' to the {{place}}\\nGonna eat me a lot of {{noun}}es\\nMovin' to the {{place}}\\nGonna eat a lot of {{noun}}es\\nMovin' to the {{place}}\\nGonna eat a lot of {{noun}}es\\nTook a little nap where the roots all twist\\nSquished a rotten {{noun}} in my fist\\nAnd dreamed about you, woman\\nI poked my {{appendage}} down inside\\nMake a little room for an &lt;type of bug&gt; to hide\\nNature's {{secondNoun}} in my hand or {{secondNoun}} or a {{typeOfFood}}\\nMillions of {{noun}}es, {{noun}}es for me\\nMillions of {{noun}}es, {{noun}}es for free\\nMillions of {{noun}}es, {{noun}}es for me\\nMillions of {{noun}}es, {{noun}}es for free\\nLook out\\nMillions of {{noun}}es, {{noun}}es for me\\nMillions of {{noun}}es, {{noun}}es for free\\nMillions of {{noun}}es, {{noun}}es for me\\nMillions of {{noun}}es, {{noun}}es for free\\nLook out",
+    "Source": "Mikey",
+    "Variables": {
+      "place": "Place",
+      "noun": "Noun",
+      "secondNoun": "Second noun",
+      "rhymesWithSecondNoun": "Word that Rhymes with Second noun",
+      "typeOfBuilding": "Type of Building",
+      "adjective": "Adjective",
+      "appendage": "Appendage",
+      "typeOfFood": "Type of Food"
+    }
+  },
+
+  {
+    "Category": "Science",
+    "Word Count": 106,
+    "Scenario_title": "Why roses are red",
+    "Scenario": "Roses are red due to the presence of a pigment called anthocyanin. This pigment is responsible for giving the petals their red color. The production of this pigment is influenced by the pH level of the soil in which the rose plant grows. If the soil is acidic, the rose petals will be redder, while more alkaline conditions result in pink or white petals. In addition to anthocyanin, other pigments also contribute to the variety of colors seen in roses, including carotenoids {{yellowAndOrange}} and flavonols {{whiteAndCream}}. Overall, roses' red color is a result of a complex biochemical process stimulated by environmental factors.",
+    "Source": "ChatGPT",
+    "Variables": {
+      "yellowAndOrange": "Name for Yellow and Orange",
+      "whiteAndCream": "Name for White and Cream"
+    }
+  },
+  {
+    "Category": "",
+    "Word Count": 86,
+    "Scenario_title": "Birthday Party Fun!",
+    "Scenario": "Yesterday I went to {{personsName}} birthday party. I got him/her a {{noun}}. The party was {{adjective}}. We started by playing {{activity}} and then there was a {{verb}} party. Lots of my friends were there but I mostly hung out with {{anotherPersonsName}}. We talked about {{secondNoun}} and how our friend {{personsName}} is a {{thirdNoun}}. During the cake everyone {{pastTenseVerb}} and sang {{songName}}. I had a {{secondAdjective}} time at the party and enjoyed celebrating {{personsName}}. He/she is such a {{thirdAdjective}} friend.",
+    "Source": "Gabriela",
+    "Variables": {
+      "personsName": "Person's Name",
+      "noun": "Noun",
+      "adjective": "Adjective",
+      "activity": "Activity",
+      "verb": "Verb",
+      "anotherPersonsName": "Anotoher Person's Name",
+      "secondNoun": "Another Noun",
+      "thirdNoun": "A Third Noun",
+      "pastTenseVerb": "Past Tense Verb",
+      "songName": "The Name of a Song",
+      "secondAdjective": "Another Adjective",
+      "thirdAdjective": "A Final Adjective"
+    }
+  },
+  {
+    "Category": "",
+    "Word Count": 76,
+    "Scenario_title": "Famous Cat",
+    "Scenario": "Morris—the cat with the {{adjective}}attitude and the posh {{noun}} is the \"spokesperson\" for {{number}} Lives cat{{typeOfFood}}. Garfield—the famous comic-stip cat who hates{{pluralNoun}}, loves to {{verb}}, and has no respect for {{femaleName}}, his owner's dog. Smelly Cat—made famous in the song sung by {{femaleArtist}} on the TV show {{anotherNoun}}s. Grumpy Cat—an Internetnounknown for her hilarious{{part of the body}}. Stubbs —the Mayor of {{town}}, Alaska. Cat—the feline Heroine of the movie Breakfast at{{anotherFemaleName}}'s. Tom—the {{secondAdjective}} cat that will never catch his nemesis, Jerry the {{animal}}.",
+    "Source": "Nazile",
+    "Variables": {
+      "adjective": "Adjective",
+      "noun": "Noun",
+      "number": "Number",
+      "typeOfFood": "Type of Food",
+      "pluralNoun": "Plural Noun",
+      "verb": "Verb",
+      "femaleName": "Female Name",
+      "femaleArtist": "Female Artist",
+      "anotherNoun": "Another noun",
+      "partOfThebody": "A Part of the Body",
+      "town": "Town",
+      "anotherFemaleName": "Another female's name",
+      "secondAdjective": "Another Adjective",
+      "animal": "Animal"
+    }
+  },
+  {
+    "Category": "",
+    "Word Count": 189,
+    "Scenario_title": "Mad Libs For JavaScript Developers",
+    "Scenario": "As a JavaScript developer, I love working with {{adjective}} libraries and {{secondAdjective}} frameworks. My favorite is {{libraryOrFrameworkName}}, which allows me to easily {{verb}}, {{noun}} and {{secondVerb}}, {{secondNoun}}.\\n\\nWhen I'm debugging my JavaScript code, I often use the {{thirdAdjective}} console to {{thirdVerb}}, {{thirdNoun}} and {{fourthVerb}},{{fourthNoun}}. This helps me to {{fifthVerb}} the issue and {{sixthVerb}} a/an {{fourthAdjective}} solution.\\n\\nOne of the challenges of JavaScript development is dealing with {{fifthAdjective}} browser compatibility issues. To overcome this, I often use {{anotherLibraryOrToolName}} to {{seventhVerb}} my code and ensure that it works {{adverb}} across different browsers.\\n\\nOne of my favorite features of JavaScript is {{sixthAdjective}} functions. I love being able to {{eigthVerb}}, {{fifthNoun}} and {{ninthVerb}}, {{sixthNoun}} using simple and {{seventhAdjective}} code.\\n\\nWhen I'm working on a complex JavaScript project, I always make sure to {{tenthVerb}} my code into {{eigthAdjective}} modules. This helps me to {{eleventhVerb}} my code and ensure that it is {{ninthAdjective}} and {{secondAdverb}} to maintain.\\n\\nAs a JavaScript developer, I always make sure to {{twelthVerb}},{{seventhNoun}} and {{thirteenthVerb}}, {{eigthNoun}} using {{tenthAdjective}} coding practices. This helps me to create {{eleventhAdjective}} and {{twelthAdjective}} code that is easy to {{fourteenthVerb}} and {{fifteenthVerb}} over time.",
+    "Source": "Emilio",
+    "Variables": {
+      "adjective": "Adjective",
+      "secondAdjective": "Adjective",
+      "libraryOrFrameworkName": "Library or Framework",
+      "verb": "Verb",
+      "noun": "Noun",
+      "secondVerb": "Verb",
+      "secondNoun": "Noun",
+      "thirdAdjective": "Adjective",
+      "thirdVerb": "Verb",
+      "thirdNoun": "Noun",
+      "fourthVerb": "Verb",
+      "fourthNoun": "Noun",
+      "fifthVerb": "Verb",
+      "sixthVerb": "Verb",
+      "fourthAdjective": "Adjective",
+      "fifthAdjective": "Adjective",
+      "anotherLibraryOrToolName": "Different Library or Framework",
+      "seventhVerb": "Verb",
+      "adverb": "Adverb",
+      "eigthAdjective": "Adjective",
+      "eleventhVerb": "Verb",
+      "ninthAdjective": "Adjective",
+      "secondAdverb": "Adverb",
+      "twelthVerb": "Verb",
+      "seventhNoun": "Noun",
+      "thirteenthVerb": "Verb",
+      "eigthNoun": "Noun",
+      "tenthAdjective": "Adjective",
+      "eleventhAdjective": "Adjective",
+      "twelthAdjective": "Adjective",
+      "fourteenthVerb": "Verb",
+      "fifteenthVerb": "Verb"
+    }
+  }
+]
