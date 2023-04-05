@@ -1,6 +1,9 @@
 
 .flex {
   display: flex;
+  &.evenly{
+    justify-content: space-evenly;
+  }
 }
 
 .flex.wrap {
@@ -82,3 +85,31 @@ section.game ul li div {
   }
 }
 
+html {
+  background: linear-gradient(45deg, #98ce55, #6b9b84);
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+header {
+  text-align: center;
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  color: #551a8b;
+  text-align: center;
+}
+
+form {
+  display: grid;
+  justify-items: end;
+}
+
+footer {
+  text-align: center;
+  margin: 1em;
+}

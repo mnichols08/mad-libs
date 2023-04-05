@@ -25,7 +25,7 @@ const renderScenarios = (scenarios) => {
   section.prepend(heading);
   section.append(ul);
   anchor.append(section);
-  ul.classList = "flex wrap no-list center";
+  ul.classList = "flex wrap no-list center evenly";
   // Loop over all of the list items we just created and add an even listener to them, passing the index of the Madlib into the list item that is clicked upon.
   const madlibs = document.querySelectorAll(".game ul li");
   madlibs.forEach((madlib, i) =>
