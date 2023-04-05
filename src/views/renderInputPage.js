@@ -2,6 +2,10 @@ import clear, { anchor } from "./clear";
 import createEle from "../utils/createEle";
 import collectScenarios from "../controller/collectScenarios";
 
+import curseFilter from '../utils/curseFilter';
+
+console.log(curseFilter())
+
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
@@ -30,7 +34,8 @@ const renderInputPage = (title, variables, index) => {
     const formResponses = [...new FormData(e.target).entries()].map(
       (data) => data[1]
     ); // renders responses from form into an array to be passed into the fucnction to collect scenarios
-    collectScenarios().renderStory(index, formResponses, keys);
+    if (curseFilter(formResponses)) collectScenarios().renderStory(index, formResponses, keys);
+    else console.error('awww you said a wurrrty dird!!')
   });
 
   // creates a button at the bottom of the form
