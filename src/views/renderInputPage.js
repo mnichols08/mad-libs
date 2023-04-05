@@ -1,16 +1,13 @@
 import clear, { anchor } from "./clear";
 import createEle from "../utils/createEle";
 import collectScenarios from "../controller/collectScenarios";
-
-import curseFilter from '../utils/curseFilter';
-
-console.log(curseFilter())
+import pegarDifferenca from "../utils/curseFilter";
 
 // function to render inputs
 const renderInputPage = (title, variables, index) => {
   // maps over the inputs array to extract the key values from it
   const keys = Object.keys(variables);
-  const placeholders = keys.map(key => variables[key])
+  const placeholders = keys.map((key) => variables[key]);
   const section = document.createElement("section");
   const form = document.createElement("form");
   // renders the text on screen
@@ -33,9 +30,9 @@ const renderInputPage = (title, variables, index) => {
     e.preventDefault(); // stops page from following default protocol to process the form
     const formResponses = [...new FormData(e.target).entries()].map(
       (data) => data[1]
-    ); // renders responses from form into an array to be passed into the fucnction to collect scenarios
-    if (curseFilter(formResponses)) collectScenarios().renderStory(index, formResponses, keys);
-    else console.error('awww you said a wurrrty dird!!')
+    ); // converts responses from form into an array to be passed into the function to collect scenarios
+    if (pegarDifferenca(formResponses)) // checks the responses given against a badword filter
+      collectScenarios().renderStory(index, formResponses, keys); // render the story since it passed the check
   });
 
   // creates a button at the bottom of the form
